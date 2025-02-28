@@ -611,7 +611,7 @@ function setCandyProperty(key, value) {
 }
 
 
-window.MockRequest = function(url, params) {
+window.MockRequest = function(url, params,  method = "GET") {
     url = url.split('?')[0] // candycrushapi gives the query string differently sadly
     // but we can just ignore it
 
