@@ -1,0 +1,5 @@
+window.gameInitStrings = {
+	"candycrush.candycrush": {
+
+  }
+}
