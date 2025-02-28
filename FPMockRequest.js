@@ -572,8 +572,8 @@ function gameInitLight() {
                 "lastOnlineTime": 1736338198000,
                 "fullName": "You",
                 "name": "You",
-                "pic": "https://mysticccs.github.io/candycrush.king.com/odus100x100.png",
-                "picSquare": "https://mysticccs.github.io/candycrush.king.com/odus50x50.png",
+                "pic": "odus100x100.png",
+                "picSquare": "odus50x50.png",
                 "countryCode": "CA",
                 "topEpisode": 1,
                 "topLevel": 1,
@@ -622,10 +622,10 @@ window.MockRequest = function(url, params,  method = "GET") {
     let result = {}
     try {
         switch (url) {
-            case "https://mysticccs.github.io/candycrush.king.com/api/gameInitLight": {
+            case "api/gameInitLight": {
                 result = gameInitLight()
                 break;
-            } case "https://mysticccs.github.io/candycrush.king.com/api/handOutItemWinnings": {
+            } case "api/handOutItemWinnings": {
                 //console.log('adding this')
                 let boostersAdd = JSON.parse(decoded['arg0'])
                 //console.log(boostersAdd)
@@ -633,7 +633,7 @@ window.MockRequest = function(url, params,  method = "GET") {
                 result = getBalance()
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/api/useItemsInGame": {
+            case "api/useItemsInGame": {
                 //console.log('adding this')
                 let boostersAdd = JSON.parse(decoded['arg0'])
                 //console.log(boostersAdd)
@@ -641,35 +641,35 @@ window.MockRequest = function(url, params,  method = "GET") {
                 result = getBalance()
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/api/gameStart2": {
+            case "api/gameStart2": {
                 result = gameStart(decoded['arg0'], decoded['arg1'])
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/api/getLevelToplist": {
+            case "api/getLevelToplist": {
                 result = getToplist(decoded['arg0'], decoded['arg1'])
                 break;
             }
-            case "https://mysticccs.github.io/candycrush.king.com/api/gameEnd3": {
+            case "api/gameEnd3": {
                 result = gameEnd(JSON.parse(decoded['arg0']))
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/api/poll": {
+            case "api/poll": {
                 result = {currentUser: getCurrentUser()}
                 break;
             }
-            case "https://mysticccs.github.io/candycrush.king.com/api/getMessages": {
+            case "api/getMessages": {
                 result = {events: [], currentUser: getCurrentUser()}
                 break;
             }
-            case "https://mysticccs.github.io/candycrush.king.com/api/getBalance": {
+            case "api/getBalance": {
                 result = getBalance()
                 break;
             }
-            case "https://mysticccs.github.io/candycrush.king.com/api/unlockItem": {
+            case "api/unlockItem": {
                 result = addBoosters([{type:decoded['arg0'], amount:0}], true)
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/candycrushapi/getWebFileUrl": {
+            case "candycrushapi/getWebFileUrl": {
                 let wfu = decoded['arg0']
                 switch (wfu) {
                     case "/s.json":
@@ -684,27 +684,27 @@ window.MockRequest = function(url, params,  method = "GET") {
                 }
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/candycrushapi/getGameModes": {
+            case "candycrushapi/getGameModes": {
                 result = ["Classic", "Classic moves", "Drop down", "Light up", "Order", "Frogger", "Jelly Drop down", "Jelly Order", "Order Drop", "Jelly Color", "Jelly Time"]
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/candycrushapi/getGameModePerLevel": {
+            case "candycrushapi/getGameModePerLevel": {
                 result = gameModesPerLevel
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/candycrushapi/getCandyProperties": {
+            case "candycrushapi/getCandyProperties": {
                 result = {candyProperties: getCandyProperties()}
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/candycrushapi/getLevelAbTests": {
+            case "candycrushapi/getLevelAbTests": {
                 result = []
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/candycrushapi/setCandyProperty": {
+            case "candycrushapi/setCandyProperty": {
                 setCandyProperty(decoded['arg0'],decoded['arg1'])
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/candycrushapi/deliverInitialHardCurrencyGiftForIntroPop": {
+            case "candycrushapi/deliverInitialHardCurrencyGiftForIntroPop": {
                 let currentUser = get('currentUser')
                 setCandyProperty('introduceHardCurrency', 'true')
                 if (!currentUser.hasGottenInitialGift) {
@@ -713,17 +713,17 @@ window.MockRequest = function(url, params,  method = "GET") {
                 }
                 set('currentUser',currentUser)
             }
-            case "https://mysticccs.github.io/candycrush.king.com/candycrushapi/getWheelOfBoosterPrize": {
+            case "candycrushapi/getWheelOfBoosterPrize": {
                 result = getWheelPrize()
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/api/setSoundFx": {
+            case "api/setSoundFx": {
                 let currentUser = get('currentUser')
                 currentUser.soundFx = JSON.parse(decoded['arg0'])
                 set('currentUser', currentUser)
                 break
             }
-            case "https://mysticccs.github.io/candycrush.king.com/api/setSoundMusic": {
+            case "api/setSoundMusic": {
                 let currentUser = get('currentUser')
                 currentUser.soundMusic = JSON.parse(decoded['arg0'])
                 set('currentUser', currentUser)
